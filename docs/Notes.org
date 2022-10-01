@@ -16,15 +16,32 @@ la idea del proyecto es que sea accesible y replicable usando materiales de bajo
 El software se montara sobre una raspberry pi, con raspbian, ejecutando scripts de bash y python .
 
 
+
+* para entregar
+
+Agree to and check the boxs
+
+entregarlo en la plataforma space apps
+
+tener una demostracion del proyecto
+
+*** demostracion  -> video de maximo 7 segundos o diapositivas maximo 7
+
+
+* criterios a evaluar
+
+Impact, Creativity,Validity, Relevance, and Presentation. 
+
+
 * entrega
 
 ** proyect name
 
    lambda orbit sky eye
    
-** problem
+** wich is the problem
 
 is 
 with owrs perspective the problem is the acc
 
-
+** solution
