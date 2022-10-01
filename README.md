@@ -1,1 +1,0 @@
-# LambdaCard-NasaSpaceAppsChalleng
