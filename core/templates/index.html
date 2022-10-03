@@ -1,5 +1,9 @@
 {% extends  'template.html'%}
 {% block content %} 
+	<center>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/doZGtHRuIbQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<br>
+	<br>
    <code class=".codeIt">
    	<div id="ingredients">
 	<table border="1">
@@ -15,5 +19,5 @@
 		</tr>
 	</table>
 	<br>
-	<center><img src="{{ url_for('static', filename='img/1.jpeg')}}" height="100" width="900"></center>
+	<img src="{{ url_for('static', filename='img/1.jpeg')}}" height="100" width="900"></center>
 {% endblock  %}
