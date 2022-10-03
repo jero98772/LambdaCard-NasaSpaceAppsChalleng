@@ -5,15 +5,16 @@ El proyecto es un pequeño kit replicable para conectarse por radio con satelite
 
 el kit tiene un panel solar para que sea energeticamente independiente
 
-Es imporante tambien que sea independiente al internet para que pueda llegar a zonas mas remotas y facilitar al publico que no cuenta con estos recursos , como africa , el congo u otros.
+Es imporante tambien que sea independiente al internet para que pueda llegar a zonas mas remotas y facilitar al publico que no cuenta con estos recursos, como colombia, el congo u otros que no tengan buena conexion tengan mucha zona rural y compartan esta problematica.
 
 En el caso que no tenga acceso a internet contara con un horario programable para conectarse con los satelites cuando pasen y limpiar los datos.
 
 Si cuenta con acceso a internet tendra acceso a una interfas web.
 
-la idea del proyecto es que sea accesible y replicable usando materiales de bajo costo y tecnologias libres.
+la idea del proyecto es que sea accesible y sea replicable usando materiales de bajo costo y tecnologias libres, para que quede mas accesible.
 
 El software se montara sobre una raspberry pi, con raspbian, ejecutando scripts de bash y python .
+
 
 
 

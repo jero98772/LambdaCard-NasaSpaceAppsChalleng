@@ -7,12 +7,33 @@ from .tools.tools import *
 import datetime
 import os
 SAVESFOLDER="core/static/wav/"
-#IMGFOLDER="static/img/"
+IMGFOLDER="core/static/img/"
 app = Flask(__name__)
 class webpage():
-	@app.route("/",methods=['GET','POST'])
+	@app.route("/")
 	def index():
 		return render_template("index.html")
+	@app.route("/wifi.html")
+	def wifi():
+		password="sky--eye"
+		ssid="Lambda-Orbit-EyeSky"
+		if request.method == 'POST':
+			ssid=request.form["ssid"]
+			p=request.form["password"]
+		return render_template("wifi.html",p=p,ssid=ssid)
+	@app.route("/tools.html")
+	def tools():
+		return render_template("tools.html")
+	@app.route("/images.html")
+	def images():
+		return render_template("images.html")
+	@app.route("/alert.html")
+	def alert():
+		return render_template("alert.html")
+
+	@app.route("/predsatelite.html")
+	def predsatelite():
+		return render_template("predsatelite.html")
 	@app.route("/noaaTolkit",methods=['GET','POST'])
 	def noaaTolkit():
 		if not os.path.exists(SAVESFOLDER):
@@ -34,10 +55,12 @@ class webpage():
 		return render_template("noaaTolkit.html")
 	@app.route("/noaaTolkit/outr/<string:name>")
 	def noaaTolkitoutr(name):
-		filename=noaaResample(SAVESFOLDER+name)
+		filename=noaaResample(name,SAVESFOLDER,IMGFOLDER)
+		im=img(i)
+		im2=grayScale(im)
 		return render_template("noaaTolkitOut.html",name="img/"+filename)
 
 	@app.route("/noaaTolkit/out/<string:name>")
 	def out(name):
-		filename=noaa(SAVESFOLDER+name)
+		filename=noaa(name,SAVESFOLDER,IMGFOLDER)
 		return render_template("noaaTolkitOut.html",name="img/"+filename)

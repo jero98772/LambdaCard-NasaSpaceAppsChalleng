@@ -1,5 +1,19 @@
-
 {% extends  'template.html'%}
 {% block content %} 
-   main web
+   <code class=".codeIt">
+   	<div id="ingredients">
+	<table border="1">
+		<tr>
+			<td>
+				<div style="color: black;background-color:gray ">
+				  <code>
+				  		
+						<p class=".black">Satellite images help to identify environmental phenomena occurring on the surface of the planet so that the proper measures can be taken.</p><br><p  class=".black">However, accessing and processing satellite data is often seen as inaccessible for the people who need it the most.</p><br><p  class=".black">SkyEye is a tiny replicable, affordable, and easy to use kit that allows connection to climatological satellites and enables users to access an AI system to process the data and detect climatological and/or landscape anomalies that may lead to accident prevention and detection of illegal activities in remote areas.</p><br><p  class=".black">Our main motivation is allowing communities to properly protect their territories from illegal activities and natural disasters.</p><br>
+					</code>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<center><img src="{{ url_for('static', filename='img/1.jpeg')}}" height="100" width="900"></center>
 {% endblock  %}

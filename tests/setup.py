@@ -9,10 +9,9 @@ setup(
 	license='GPLv3',
 	author_email='jero98772@protonmail.com',
 	author='jero98772',
-	description='free source minimal multilingual blog maker and manager for different blog entries and multiple blog entries , with web interface. in this blog can use images but we looking to keep it minimalism.',
+	description='',
 	url='',
 	packages=find_packages(),
-    install_requires=['Flask','deep-translator'],
+    install_requires=['Flask'],
     include_package_data=True,
 	)
-genTokenFile("data/token.txt")

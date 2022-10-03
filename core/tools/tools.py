@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
 #labdaOrbit - by lambdaCard
-def noaaResample(name:str,directory=""):
+def noaaResample(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
     with a wav file obteined of noaas satelite generate a png file using hilbert transform,resampled is better cuality, sometimes audio not was resample
@@ -12,7 +12,7 @@ def noaaResample(name:str,directory=""):
     from PIL import Image
     import matplotlib.pyplot as plt
     import datetime
-    fs, data = wav.read(name)  
+    fs, data = wav.read(pathwav+name)  
     data_crop = data[20*fs:21*fs]
     analytical_signal = signal.hilbert(data)
     data_am = np.abs(analytical_signal)
@@ -34,9 +34,9 @@ def noaaResample(name:str,directory=""):
     image = image.resize((w, 4*h))
     plt.imshow(image)
     filename=name.replace(".wav",".png")
-    plt.savefig(directory+filename)
+    plt.savefig(directoryimg+filename)
     return filename
-def noaa(name:str,directory=""):
+def noaa(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
     with a wav file obteined of noaas satelite generate a png file using hilbert transform
@@ -48,7 +48,7 @@ def noaa(name:str,directory=""):
     import matplotlib.pyplot as plt
     import datetime
     imgpix=[]
-    fs, data = wav.read(name)  
+    fs, data = wav.read(pathwav+name)  
     data_crop = data[20*fs:21*fs]
     resample = 4
     data = data[::resample]
@@ -70,11 +70,30 @@ def noaa(name:str,directory=""):
             py += 1
             if py >= h:
                 break
-    image = image.resize((w, 4*h))
+    image = image.resize((w, h))
 
     #print(imgpix)
     #image=ImageOps.grayscale(image)
     plt.imshow(image)
     filename=name.replace(".wav",".png")
-    plt.savefig(directory+filename)
+    plt.savefig(directoryimg+filename)
     return filename
+def img(file):
+    datos = mpi.imread(file)
+    return datos
+def grayScale(imagen):
+    height = imagen.shape[0]
+    width = imagen.shape[1]
+    img = np.zeros((height,width,3),dtype=int)
+    for i in range(height):
+        for j in range(width):
+            elemento1 = imagen[i][j][0]
+            elemento2 = imagen[i][j][1]
+            elemento3 = imagen[i][j][2]
+            prom = elemento1+elemento2+elemento3/imagen.shape[2]
+            print(prom)
+            for k in range(3):
+                img[i][j][k] = prom*100
+def save(datos):
+    plt.imshow(datos)
+    plt.savefig("3.png")

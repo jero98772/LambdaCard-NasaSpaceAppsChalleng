@@ -3,10 +3,44 @@
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
 </head>
 <body>
-<h1>labdaOrbit</h1>
+<h1 style="color: white;" >labdaOrbit</h1>
+
+<ul class="bar">
+			<li><a href="/">Main</a></li>
+
+				<li><a href="/tools.html">Tools</a>
+					<ul>
+						<li><a href="/noaaTolkit">signal2image</a> </li>
+						<li><a href="/analizeAI.html">AI analize</a> </li>
+						<li><a href="/websdr.html">websdr</a></li>
+					</ul>
+				</li>
+
+				<li><a href="/configurations">configurations</a>
+					<ul>
+						<li><a href="/shedule.html">shedule</a> </li>
+						<li><a href="/wifi.html">wifi</a> </li>
+					</ul>
+				</li>
+
+				<li><a href="/reports.html">Reports</a>
+					<ul>
+						<li><a href="/predsatelite.html">Predict next satelite</a></li>
+						<li><a href="/alert.html">alert</a> </li>
+						<li><a href="/images.html">images</a></li>
+					</ul>
+				</li>
+			</ul>
+
+
+
 <hr>
+<br>
+<br>
 {% block content %}
 
 {% endblock %}
