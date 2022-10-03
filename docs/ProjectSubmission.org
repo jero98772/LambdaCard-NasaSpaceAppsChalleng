@@ -2,3 +2,23 @@
 
 ** Project Title
 LambdaCard-Lambda_Orbit-Sky_Eye-NasaSpaceAppsChalleng
+
+** High-Level Project Summary
+
+Satellite images help to identify environmental phenomena occurring on the surface of the planet so that the proper measures can be taken. However, accessing and processing satellite data is often seen as inaccessible for the people who need it the most. SkyEye is a tiny replicable, affordable, and easy to use kit that allows connection to climatological satellites and enables users to access an AI system to process the data and detect climatological and/or landscape anomalies that may lead to accident prevention and detection of illegal activities in remote areas. Our main motivation is allowing communities to properly protect their territories from illegal activities and natural disasters.
+
+** Link to Final Project
+
+https://sky--eye.herokuapp.com/
+
+
+** Detailed Project Description
+4.1 The SkyEye Kit 
+The SkyEye kit is specially designed for anyone to be able to rapidly set up an antenna capable of receiving data from NOAA 15, NOAA 18, NOAA 19 and others. It consists of an easy to manufacture double dipole antenna that can be configured to the 137mHz to 138mHz in which the satellites emit the information. It is connected to a SDR (software defined radio) that transfers the signal to a raspberry pi that processes it using open source software rtlsdr so that a .WAV file can be obtained. The kit also includes a battery and a small solar panel for portability. 
+4.2  The SkyEye Webapp
+The SkyEye webapp is in charge of receiving and processing the data acquired by all users of the SkyEye kit. The webapp starts by processing the audio files using a python script (linked in the github) which converts .WAV files into satelital images and cleans the noise using open source libraries. The processed images are then passed into the trained AI model to be clustered and detect anomalies that may result in useful insights for all the users of the SkyEye. The idea is that the data collected is not only useful to those who collected it but to everyone in the open SkyEye community. For example, if a SkyEye user detected strong rain indicators near a village with a weak drain system, the community and relevant authorities can be alerted so that proper anti-flooding measures may be taken. Although properly setting up all the infrastructure to manage the functionalities we want to include is out of the time scope of the challenge, we firmly believe that given the proper amount of time and hard work, SkyEye could help millions of people all around the world. 
+
+
+4.3 The Community
+The community is the heart of our project. One of our main goals is to allow anyone around the world to learn how to collect data from climatological satellites and make that information accessible to everyone who needs it. It may be a hobby for some members, or a must do for others who are trying to help their communities , but in the end it is the data collected by the whole that results in information and insight that is the core of what we are trying to achieve. Therefore, we want to create a global community around SkyEye where everyone can access and use SkyEye kits to collect data and share them with everyone. 
+

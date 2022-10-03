@@ -13,27 +13,9 @@ class webpage():
 	@app.route("/")
 	def index():
 		return render_template("index.html")
-	@app.route("/wifi.html")
-	def wifi():
-		password="sky--eye"
-		ssid="Lambda-Orbit-EyeSky"
-		if request.method == 'POST':
-			ssid=request.form["ssid"]
-			p=request.form["password"]
-		return render_template("wifi.html",p=p,ssid=ssid)
 	@app.route("/tools.html")
 	def tools():
-		return render_template("tools.html")
-	@app.route("/images.html")
-	def images():
-		return render_template("images.html")
-	@app.route("/alert.html")
-	def alert():
-		return render_template("alert.html")
-
-	@app.route("/predsatelite.html")
-	def predsatelite():
-		return render_template("predsatelite.html")
+		return render_template("tools.html")#need content
 	@app.route("/noaaTolkit",methods=['GET','POST'])
 	def noaaTolkit():
 		if not os.path.exists(SAVESFOLDER):
@@ -59,8 +41,41 @@ class webpage():
 		im=img(i)
 		im2=grayScale(im)
 		return render_template("noaaTolkitOut.html",name="img/"+filename)
-
 	@app.route("/noaaTolkit/out/<string:name>")
 	def out(name):
 		filename=noaa(name,SAVESFOLDER,IMGFOLDER)
 		return render_template("noaaTolkitOut.html",name="img/"+filename)
+	@app.route("/analizeAI.html")
+	def analizeAI():
+		return render_template("analizeAI.html")
+	@app.route("/websdr.html")
+	def websdr():
+		return render_template("websdr.html")
+
+	@app.route("/configurations.html")
+	def configurations():
+		return render_template("configurations.html")
+	@app.route("/wifi.html")
+	def wifi():
+		password="sky--eye"
+		ssid="Lambda-Orbit-EyeSky"
+		if request.method == 'POST':
+			ssid=request.form["ssid"]
+			password=request.form["password"]
+		return render_template("wifi.html",password=password,ssid=ssid)
+	@app.route("/shedule.html")
+	def shedule():
+		return render_template("shedule.html")
+
+	@app.route("/reports.html")
+	def reports():
+		return render_template("reports.html")
+	@app.route("/images.html")
+	def images():
+		return render_template("images.html")
+	@app.route("/alert.html")
+	def alert():
+		return render_template("alert.html")
+	@app.route("/predsatelite.html")
+	def predsatelite():
+		return render_template("predsatelite.html")
