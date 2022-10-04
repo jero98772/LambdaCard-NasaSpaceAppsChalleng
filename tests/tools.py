@@ -105,9 +105,10 @@ def img2asciiart(img,size = 15,intensity = 255,replaceItem = 0,items = ["@"," "]
     outfig = [imgresized,imgstr]
     print(imgresized)
     return outfig 
-def img(file):
+def imgload(file):
     datos = mpi.imread(file)
     return datos
+    
 def grayScale(imagen):
 	height = imagen.shape[0]
 	width = imagen.shape[1]
@@ -131,9 +132,9 @@ def show(datos):
     plt.imshow(datos)
     plt.show()
 
-def save(datos):
-    plt.imshow(datos)
-    plt.savefig("3.png")
+def save(filename,image):
+    plt.imsave(filename,image)
+
 def main():
     #img2asciiart("1.png",size = 500,intensity = 255,replaceItem = 0,items = ["@"," "])
     i=noaa("1.wav")

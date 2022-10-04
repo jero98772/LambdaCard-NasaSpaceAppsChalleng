@@ -7,7 +7,7 @@ from .tools.tools import *
 import datetime
 import os
 SAVESFOLDER="core/static/wav/"
-IMGFOLDER="core/static/img/"
+IMGFOLDER="core/static/img/wefax/"
 app = Flask(__name__)
 class webpage():
 	@app.route("/")
@@ -37,14 +37,17 @@ class webpage():
 		return render_template("noaaTolkit.html")
 	@app.route("/noaaTolkit/outr/<string:name>")
 	def noaaTolkitoutr(name):
-		filename=noaaResample(name,SAVESFOLDER,IMGFOLDER)
-		im=img(i)
-		im2=grayScale(im)
-		return render_template("noaaTolkitOut.html",name="img/"+filename)
+		filename,img=noaaResample(name,SAVESFOLDER,IMGFOLDER)
+		return render_template("noaaTolkitOut.html",name="img/wefax/"+filename)
 	@app.route("/noaaTolkit/out/<string:name>")
 	def out(name):
-		filename=noaa(name,SAVESFOLDER,IMGFOLDER)
-		return render_template("noaaTolkitOut.html",name="img/"+filename)
+		filename,img=noaa(name,SAVESFOLDER,IMGFOLDER)
+		#img=imgload(IMGFOLDER+filename)
+		#print(img)
+		#img2=grayScale(img)
+		#print(type(img2))
+		#save(IMGFOLDER+filename,img2)
+		return render_template("noaaTolkitOut.html",name="img/wefax/"+filename)
 	@app.route("/analizeAI.html",methods=['GET','POST'])
 	def analizeAI():
 		report=""

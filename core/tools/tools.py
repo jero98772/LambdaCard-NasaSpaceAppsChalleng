@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
 #labdaOrbit - by lambdaCard
+from PIL import Image,ImageOps
+import scipy.io.wavfile as wav
+import scipy.signal as signal
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpi
+import datetime
 def noaaResample(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
     with a wav file obteined of noaas satelite generate a png file using hilbert transform,resampled is better cuality, sometimes audio not was resample
     """
-    import scipy.io.wavfile as wav
-    import scipy.signal as signal
-    import numpy as np
-    from PIL import Image
-    import matplotlib.pyplot as plt
-    import datetime
     fs, data = wav.read(pathwav+name)  
     data_crop = data[20*fs:21*fs]
     analytical_signal = signal.hilbert(data)
@@ -34,19 +35,13 @@ def noaaResample(name:str,pathwav="",directoryimg=""):
     image = image.resize((w, 4*h))
     plt.imshow(image)
     filename=name.replace(".wav",".png")
-    plt.savefig(directoryimg+filename)
-    return filename
+    plt.imsave(directoryimg+filename,image)
+    return filename,image
 def noaa(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
     with a wav file obteined of noaas satelite generate a png file using hilbert transform
     """
-    import scipy.io.wavfile as wav
-    import scipy.signal as signal
-    import numpy as np
-    from PIL import Image
-    import matplotlib.pyplot as plt
-    import datetime
     imgpix=[]
     fs, data = wav.read(pathwav+name)  
     data_crop = data[20*fs:21*fs]
@@ -71,14 +66,13 @@ def noaa(name:str,pathwav="",directoryimg=""):
             if py >= h:
                 break
     image = image.resize((w, h))
-
     #print(imgpix)
-    #image=ImageOps.grayscale(image)
+    image=ImageOps.grayscale(image)
     plt.imshow(image)
     filename=name.replace(".wav",".png")
-    plt.savefig(directoryimg+filename)
-    return filename
-def img(file):
+    plt.imsave(directoryimg+filename,image)
+    return filename,image
+def imgload(file):
     datos = mpi.imread(file)
     return datos
 def grayScale(imagen):
@@ -91,12 +85,14 @@ def grayScale(imagen):
             elemento2 = imagen[i][j][1]
             elemento3 = imagen[i][j][2]
             prom = elemento1+elemento2+elemento3/imagen.shape[2]
-            print(prom)
             for k in range(3):
                 img[i][j][k] = prom*100
-def save(datos):
-    plt.imshow(datos)
-    plt.savefig("3.png")
+    return img
+def save(path,image):
+    #print(type(path),type(image),path,image)
+    img=Image.fromarray(image)
+    img.save(path)
+    #plt.savefig(path,image)
 def genMap():
     import folium
     m = folium.Map(location=[6.256405968932449, -75.59835591123756])

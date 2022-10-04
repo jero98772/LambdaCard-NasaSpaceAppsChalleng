@@ -1,11 +1,21 @@
 {% extends  'template.html'%}
 {% block content %} 
-<h1>Wifi</h1>
-<label>ssid</label>
-<input type="text" name="ssid" value="{{ ssid }}">
+<center>
+<div class="w-50 p-3" >
+
+<h1>Location</h1>
+<label>Latitude </label>
+<input  class="form-control" type="text" name="latitude" value="{{ latitude }}">
 <br>
-<label>Password</label>
-<input type="Password" name="password" value="">
+<label>Longitude</label>
+<input  class="form-control" type="text" name="longitude" value="{{ longitude }}">
+<br>
+<div class="checkbox">
+<label>Public location?</label>
+<input type="checkbox" name="location" value="True">
+</div>
 <br>
 <input type="submit" name="">
+</div>
+</center>
 {% endblock  %}
