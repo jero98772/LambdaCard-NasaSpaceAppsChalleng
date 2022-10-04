@@ -45,9 +45,12 @@ class webpage():
 	def out(name):
 		filename=noaa(name,SAVESFOLDER,IMGFOLDER)
 		return render_template("noaaTolkitOut.html",name="img/"+filename)
-	@app.route("/analizeAI.html")
+	@app.route("/analizeAI.html",methods=['GET','POST'])
 	def analizeAI():
-		return render_template("analizeAI.html")
+		report=""
+		if request.method == 'POST':
+			report="see image"
+		return render_template("analizeAI.html",report=report)
 	@app.route("/websdr.html")
 	def websdr():
 		return render_template("websdr.html")
@@ -63,6 +66,13 @@ class webpage():
 			ssid=request.form["ssid"]
 			password=request.form["password"]
 		return render_template("wifi.html",password=password,ssid=ssid)
+	@app.route("/location.html")
+	def location():
+		if request.method == 'POST':
+			lat=request.form["lat"]
+			lot=request.form["lot"]
+			visible=request.form["visible"]
+		return render_template("location.html")
 	@app.route("/shedule.html")
 	def shedule():
 		return render_template("shedule.html")
@@ -79,3 +89,10 @@ class webpage():
 	@app.route("/predsatelite.html")
 	def predsatelite():
 		return render_template("predsatelite.html")
+	@app.route("/comunity.html")
+	def comunity():
+		return render_template("comunity.html")
+
+	@app.route("/map.html")
+	def map():
+		return render_template("map.html")

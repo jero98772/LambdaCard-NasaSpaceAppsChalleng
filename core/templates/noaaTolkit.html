@@ -1,13 +1,17 @@
 {% extends  'template.html'%}
 {% block content %} 
-	<form method="post"  enctype="multipart/form-data" >
-		<h1>Noaa siganal processing</h1>
-		<label>input file <p style="color: red">(WAV)</p></label>
-		<input type="file" name="file">
-		<br>
-		<label>resampled?</label>
-		<input type="checkbox" name="resample" value="True">
-		<br>
-		<input type="submit" name="">
-	</form>
+<form method="post"  enctype="multipart/form-data" >
+	<h1>Noaa siganal processing</h1>
+	<center>
+	<h2>Upload WAV file with data of NOAA</h2>
+	<input type="file" name="file">
+	<br>
+	<br>
+	<label>resampled?</label>
+	<input type="checkbox" name="resample" value="True">
+	<br>
+	<br>
+	<input type="submit" name="">
+	</center>
+</form>
 {% endblock  %}

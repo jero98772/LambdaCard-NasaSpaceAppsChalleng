@@ -3,3 +3,4 @@ scipy
 flask
 numpy
 pillow
+folium
