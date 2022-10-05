@@ -96,5 +96,17 @@ def save(path,image):
 def genMap():
     import folium
     m = folium.Map(location=[6.256405968932449, -75.59835591123756])
-    folium.Marker([6.176375,-75.5600386], popup="<i>Node 0</i>", tooltip="Node 0").add_to(m)
+    folium.Marker([6.176375,-75.5600386], popup="<i>kit 0</i>", tooltip="kit 0").add_to(m)
+    folium.Marker([38.8978272,-77.9703665], popup="<i>next kit</i>", tooltip="next kit").add_to(m)
     m.save("index.html")
+def writetxt(name,content):
+    """
+    writetxt(name,content) , write in txt file something  
+    """
+    content =str(content)
+    with open(name, 'w') as file:
+        file.write(content)
+        file.close()
+def getData():
+    from data.data import data
+    return data 

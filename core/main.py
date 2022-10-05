@@ -9,6 +9,8 @@ import os
 SAVESFOLDER="core/static/wav/"
 IMGFOLDER="core/static/img/wefax/"
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config['SECRET_KEY']  = str(datetime.datetime.now())
 class webpage():
 	@app.route("/")
 	def index():
@@ -61,22 +63,26 @@ class webpage():
 	@app.route("/configurations.html")
 	def configurations():
 		return render_template("configurations.html")
-	@app.route("/wifi.html")
+	@app.route("/wifi.html" ,methods=['GET','POST'])
 	def wifi():
-		password="sky--eye"
-		ssid="Lambda-Orbit-EyeSky"
+		data=getData()
+		ssid=data["ssid"]
+		if data["ssid"]=="":
+			data["ssid"]="Lambda-Orbit-EyeSky"
 		if request.method == 'POST':
-			ssid=request.form["ssid"]
-			password=request.form["password"]
-		return render_template("wifi.html",password=password,ssid=ssid)
-	@app.route("/location.html")
+			data["ssid"]=request.form["ssid"]
+			writetxt("data/data.py","data="+str(data))
+			return redirect("/wifi.html")
+			#password=request.form["password"]
+		return render_template("wifi.html",ssid=ssid)
+	@app.route("/location.html",methods=['GET','POST'])
 	def location():
 		if request.method == 'POST':
 			lat=request.form["lat"]
 			lot=request.form["lot"]
 			visible=request.form["visible"]
 		return render_template("location.html")
-	@app.route("/shedule.html")
+	@app.route("/shedule.html",methods=['GET','POST'])
 	def shedule():
 		return render_template("shedule.html")
 

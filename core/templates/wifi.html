@@ -1,11 +1,19 @@
 {% extends  'template.html'%}
 {% block content %} 
+<center>
+<div class="w-50 p-3" >
 <h1>Wifi</h1>
+<form method="post">
 <label>ssid</label>
-<input type="text" name="ssid" value="{{ ssid }}">
+<br>
+<input class="form-control" type="text" name="ssid" value='{{ ssid }}'>
 <br>
 <label>Password</label>
-<input type="Password" name="password" value="">
+<br>
+<input class="form-control" type="Password" name="password" value="cccccc">
 <br>
 <input type="submit" name="">
+</form>
+</div>
+</center>
 {% endblock  %}

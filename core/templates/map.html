@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_168c0803493738c61ca200a8b157c15e {
+                #map_dbc7be8ad4379a177dba8f1fd1ff72bc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,15 +35,15 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_168c0803493738c61ca200a8b157c15e" ></div>
+            <div class="folium-map" id="map_dbc7be8ad4379a177dba8f1fd1ff72bc" ></div>
         
 </body>
 <script>    
     
-            var map_168c0803493738c61ca200a8b157c15e = L.map(
-                "map_168c0803493738c61ca200a8b157c15e",
+            var map_dbc7be8ad4379a177dba8f1fd1ff72bc = L.map(
+                "map_dbc7be8ad4379a177dba8f1fd1ff72bc",
                 {
-                    center: [6.256405968932449, -75.59835591123756],
+                    center: [6.25, -75.59],
                     crs: L.CRS.EPSG3857,
                     zoom: 10,
                     zoomControl: true,
@@ -55,34 +55,61 @@
 
         
     
-            var tile_layer_8ad297f005f394a30074a4df5e112a95 = L.tileLayer(
+            var tile_layer_ea63f02354e255decd3d5f9ef4b73103 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_168c0803493738c61ca200a8b157c15e);
+            ).addTo(map_dbc7be8ad4379a177dba8f1fd1ff72bc);
         
     
-            var marker_a44ed2f496a27ae760075aa232193ade = L.marker(
+            var marker_d3b67f6e23b21789732910a2bc6ba201 = L.marker(
                 [6.176375, -75.5600386],
                 {}
-            ).addTo(map_168c0803493738c61ca200a8b157c15e);
+            ).addTo(map_dbc7be8ad4379a177dba8f1fd1ff72bc);
         
     
-        var popup_9dcb86f29b0ea8edc58a59bb425101fb = L.popup({"maxWidth": "100%"});
+        var popup_e1cf7d5022fa875fcd0414b692a32c44 = L.popup({"maxWidth": "100%"});
 
         
-            var html_c1ce49cccb00d62c861764e5872ac597 = $(`<div id="html_c1ce49cccb00d62c861764e5872ac597" style="width: 100.0%; height: 100.0%;"><i>Node 0</i></div>`)[0];
-            popup_9dcb86f29b0ea8edc58a59bb425101fb.setContent(html_c1ce49cccb00d62c861764e5872ac597);
+            var html_2508f7b3487894b7c279ff0936cf1b4f = $(`<div id="html_2508f7b3487894b7c279ff0936cf1b4f" style="width: 100.0%; height: 100.0%;"><i>kit 0</i></div>`)[0];
+            popup_e1cf7d5022fa875fcd0414b692a32c44.setContent(html_2508f7b3487894b7c279ff0936cf1b4f);
         
 
-        marker_a44ed2f496a27ae760075aa232193ade.bindPopup(popup_9dcb86f29b0ea8edc58a59bb425101fb)
+        marker_d3b67f6e23b21789732910a2bc6ba201.bindPopup(popup_e1cf7d5022fa875fcd0414b692a32c44)
         ;
 
         
     
     
-            marker_a44ed2f496a27ae760075aa232193ade.bindTooltip(
+            marker_d3b67f6e23b21789732910a2bc6ba201.bindTooltip(
                 `<div>
-                     Node 0
+                     kit 0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_adf090573d45a9990c411e6cd7113c5f = L.marker(
+                [38.8978272, -77.9703665],
+                {}
+            ).addTo(map_dbc7be8ad4379a177dba8f1fd1ff72bc);
+        
+    
+        var popup_2102a4550632e69ada2b822e4424c7c3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_75e40213b9107cd669109c635b95a399 = $(`<div id="html_75e40213b9107cd669109c635b95a399" style="width: 100.0%; height: 100.0%;"><i>next kit</i></div>`)[0];
+            popup_2102a4550632e69ada2b822e4424c7c3.setContent(html_75e40213b9107cd669109c635b95a399);
+        
+
+        marker_adf090573d45a9990c411e6cd7113c5f.bindPopup(popup_2102a4550632e69ada2b822e4424c7c3)
+        ;
+
+        
+    
+    
+            marker_adf090573d45a9990c411e6cd7113c5f.bindTooltip(
+                `<div>
+                     next kit
                  </div>`,
                 {"sticky": true}
             );

@@ -1,9 +1,9 @@
 {% extends  'template.html'%}
 {% block content %} 
 <center>
-<div class="w-50 p-3" >
-
 <h1>Location</h1>
+<div class="w-50 p-3" >
+<form method="post">
 <label>Latitude </label>
 <input  class="form-control" type="text" name="latitude" value="{{ latitude }}">
 <br>
@@ -16,6 +16,7 @@
 </div>
 <br>
 <input type="submit" name="">
+</form>
 </div>
 </center>
 {% endblock  %}
