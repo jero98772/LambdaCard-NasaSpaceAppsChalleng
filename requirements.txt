@@ -4,3 +4,4 @@ flask
 numpy
 pillow
 folium
+pyorbital

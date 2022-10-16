@@ -46,3 +46,7 @@ is
 with owrs perspective the problem is the acc
 
 ** solution
+
+openwebrx
+
+https://www.openwebrx.de/download/rpi.php

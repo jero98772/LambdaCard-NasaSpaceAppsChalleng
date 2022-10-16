@@ -1,1 +1,1 @@
-data={'ssid': 'sky-eye', 'password': 'sky--eye', 'latitude': '', 'longitude': '', 'locationPublic?': True}
+data={'ssid': 'esfrd', 'password': 'sky--eye', 'latitude': '', 'longitude': '', 'locationPublic?': True}

@@ -1,0 +1,18 @@
+* lambda orbit sky eye KIT
+
+this kit is for monitor potential hazards and anomalies , With EO (earth observation). we try to make it more independt and accesible 
+
+** materials
+
+- solar panel
+
+- power bank 
+
+- rasoberry pi
+
+- antena for 137 Mhz
+
+
+** step 1 connections
+
+** step 2 rasbian installation and wifi

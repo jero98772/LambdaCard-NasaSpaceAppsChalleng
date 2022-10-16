@@ -13,7 +13,7 @@ Receiver altitude:   1500 m
 <br>
 Min. sat. elevation: -2 ˚
 <br>
-<br>Acessing https://noaasis.noaa.gov/cemscs/polrschd.txt
+<!--br>Acessing https://noaasis.noaa.gov/cemscs/polrschd.txt
 <br>2022-10-03 00:21:40 NOAA-19 Start of GAC transmission 1702.5 MHz LHCP 23° 
 <br>2022-10-03 00:24:35 NOAA-19 End of GAC transmission   1702.5 MHz LHCP 8° 
 <br>2022-10-03 01:06:30 NOAA-15 Start of GAC transmission 2247.5 MHz RHCP 14° 
@@ -72,7 +72,11 @@ Min. sat. elevation: -2 ˚
 <br>2022-10-10 02:00:50 NOAA-18 Start of GAC transmission 1698.0 MHz RHCP 9° 
 <br>2022-10-10 02:01:05 NOAA-18 Start of GAC transmission 1702.5 MHz LHCP 9° 
 <br>2022-10-10 02:03:07 NOAA-18 End of GAC transmission   1698.0 MHz RHCP 4° 
-<br>2022-10-10 02:04:17 NOAA-18 End of GAC transmission   1702.5 MHz LHCP 1° 
+<br>2022-10-10 02:04:17 NOAA-18 End of GAC transmission   1702.5 MHz LHCP 1°
+<br-->
+{% for i in data %}
+	<br>Satelite: {{ i[3] }} pass from {{ i[0] }} to {{ i[1] }} on {{ i[2] }}Mhz
+{% endfor %} 
 </div>
 </div>
 </code>

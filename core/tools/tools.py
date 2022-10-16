@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
-#labdaOrbit - by lambdaCard
+#lambdaOrbit - by lambdaCard
 from PIL import Image,ImageOps
 import scipy.io.wavfile as wav
 import scipy.signal as signal
@@ -8,6 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpi
 import datetime
+from rtlsdr import RtlSdr
+
 def noaaResample(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
@@ -110,3 +112,51 @@ def writetxt(name,content):
 def getData():
     from data.data import data
     return data 
+def sdrIsConected():
+    try:
+        sdr = RtlSdr()
+        val=True
+    except:
+        val=False
+    return val
+def id2frec(id):
+    if (id == "15"):
+        return 137.620,"NOAA-15"
+    elif (id == "18"):
+        return 137.9125,"NOAA-18"
+    elif (id == "19"):
+        return 137.1,"NOAA-19"
+def pred(url="https://noaasis.noaa.gov/cemscs/polrschd.txt"):
+    from pyorbital.orbital import Orbital
+    import urllib
+    orbitalNOAA15 = Orbital("NOAA-15")
+    orbitalNOAA18 = Orbital("NOAA-18")
+    orbitalNOAA19 = Orbital("NOAA-19")
+    satinfo=[]#start,end,frecuency
+    i=-1
+    for line in urllib.request.urlopen(url): # download txt, read each line
+        text = line.decode('utf-8')
+        text = text[:-1] 
+        date = text[0:17] 
+        dateParsed = datetime.datetime.strptime(date, '%Y/%j/%H:%M:%S') # parse date from weird format YYYY/DDD/HH:MM:SS
+        satID = text[23:25]
+        if "PBK,START,GAC" in text:#start pass in...
+            satinfo.append(["","","",""])
+            i+=1
+            satinfo[i][0]=str(dateParsed)
+        elif "PBK,END,GAC" in text:#end pass in..
+            satinfo[i][1]=str(dateParsed)
+            frec,sat=id2frec(satID)
+            satinfo[i][2]=frec
+            satinfo[i][3]=sat
+        else:
+            eventType = "other"
+        #if satinfo[i][0]!=0 and satinfo[i][1]!=0 and satinfo[i][2]!=0:
+    return satinfo
+        #yield eventType
+def formatSatData(data):
+    txt=""
+    #data=pred()
+    for i in data:
+        txt=txt+"Satelite: "+i[3]+" pass at "+i[0]+" to "+i[1]+" on "+str(i[2])+"Mhz \n"
+    return txt

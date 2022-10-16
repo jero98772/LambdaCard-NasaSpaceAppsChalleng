@@ -16,9 +16,15 @@
 </center>
 </div>
 </div>
+{% if sdrconet %}
+<div class="alert alert-success" role="alert">
+ 	<b>Sdr is conected</b></p>
+</div>   
+{% else %}
 <div class="alert alert-danger" role="alert">
  	<b>Sdr is not conected</b></p>
 </div>
+{% endif %}
 </div>
 </center>
 {% endblock  %}

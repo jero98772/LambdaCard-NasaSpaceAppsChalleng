@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
-#labdaOrbit - by lambdaCard
+#lambdaOrbit - by lambdaCard
 
 from flask import Flask, render_template, request, flash, redirect ,session
 from .tools.tools import *
@@ -58,7 +58,8 @@ class webpage():
 		return render_template("analizeAI.html",report=report)
 	@app.route("/websdr.html")
 	def websdr():
-		return render_template("websdr.html")
+		sdrconet=sdrIsConected()
+		return render_template("websdr.html",sdrconet=sdrconet)
 
 	@app.route("/configurations.html")
 	def configurations():
@@ -97,7 +98,9 @@ class webpage():
 		return render_template("alert.html")
 	@app.route("/predsatelite.html")
 	def predsatelite():
-		return render_template("predsatelite.html")
+		#data=formatSatData(pred())
+		data=pred()
+		return render_template("predsatelite.html",data=data)
 	@app.route("/comunity.html")
 	def comunity():
 		return render_template("comunity.html")
