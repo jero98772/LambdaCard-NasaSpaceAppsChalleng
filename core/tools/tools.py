@@ -8,8 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpi
 import datetime
-from rtlsdr import RtlSdr
-
 def noaaResample(name:str,pathwav="",directoryimg=""):
     """
     noaaResample(name:str)->imagefilename 
@@ -114,6 +112,7 @@ def getData():
     return data 
 def sdrIsConected():
     try:
+        from rtlsdr import RtlSdr
         sdr = RtlSdr()
         val=True
     except:
