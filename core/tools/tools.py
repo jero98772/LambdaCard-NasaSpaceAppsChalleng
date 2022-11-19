@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
-#lambdaOrbit - by lambdaCard
+#Sky-eye - by lambdaCard
 from PIL import Image,ImageOps
 import scipy.io.wavfile as wav
 import scipy.signal as signal

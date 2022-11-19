@@ -16,3 +16,64 @@ this kit is for monitor potential hazards and anomalies , With EO (earth observa
 ** step 1 connections
 
 ** step 2 rasbian installation and wifi
+
+install openwebrx 
+https://www.openwebrx.de/download/rpi.php
+
+and burn an sd card with the fireware
+
+when we turn on raspberry pi with openwebrx at secontime (after finishing the installation) , please run
+
+'sudo raspi-config'
+
+update
+'sudo apt upgrade -y'
+
+install hostapd
+'sudo apt install hostapd'
+
+'sudo systemctl unmask hostapd'
+
+'sudo systemctl enable hostapd'
+
+'sudo apt install dnsmasq'
+
+'sudo DEBIAN_FRONTEND=noninteractive apt install -y netfilter-persistent iptables-persistent'
+
+'sudo nano /etc/dhcpcd.conf'
+->
+interface wlan0
+        static ip_address=192.168.4.1/24
+        nohook wpa_supplicant 
+
+'sudo nano /etc/sysctl.d/routed-ap.conf'
+->
+net.ipv4.ip_forward=1
+
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo netfilter-persistent save
+
+sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+sudo nano /etc/dnsmasq.conf
+->
+interface=wlan0
+hcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
+domain=wlan
+address=/gw.wlan/192.168.4.1 
+
+sudo rfkill unblock wlan
+sudo nano /etc/hostapd/hostapd.conf
+
+contry_code=CO
+interface=wlan0
+ssid=lambda-Orbit-SkyEye
+hw_mode=g
+channel=7
+macaddr_acl=0
+auth_algs=1
+ignore_brodcast_ssid=0
+wpa=2
+wpa_passpharase=skyeye
+wpa_key_mgmt=WPA-PSK
+wpa_pairwuse=TKIP
+rsn_pairwuse=CCMP

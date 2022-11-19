@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
-#lambdaOrbit - by lambdaCard
+#Sky-eye - by lambdaCard
 
 from flask import Flask, render_template, request, flash, redirect ,session
 from .tools.tools import *

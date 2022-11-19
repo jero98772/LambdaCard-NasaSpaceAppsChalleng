@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-"
-#lambdaOrbit - by lambdaCard
+#Sky-eye - by lambdaCard
 
 from core.main import webpage
 from core.main import app
