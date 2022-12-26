@@ -1,0 +1,40 @@
+{% extends  'template.html'%}
+{% block content %} 
+	<center>
+	<h1>(this is a mockup of the web interface that goes in the kit)</h1>
+	<br>
+
+	<h1>News</h1>
+	<br>
+	<h3><a href="https://github.com/jero98772/Sky-eye">Repository on github</a></h3>
+	<br>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/piJiEWvGmSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<br>
+	<br>
+   <code class=".codeIt">
+   	<div id="ingredients">
+	<table border="1">
+		<tr>
+			<td><center>
+				<div class="w-50 p-3" >
+				<div class="alert alert-dark" >
+
+				  <code>
+				  		
+						<p class=".black">Satellite images help to identify environmental phenomena occurring on the surface of the planet so that the proper measures can be taken.</p><br><p  class=".black">However, accessing and processing satellite data is often seen as inaccessible for the people who need it the most.</p><br><p  class=".black">SkyEye is a tiny replicable, affordable, and easy to use kit that allows connection to climatological satellites and enables users to access an AI system to process the data and detect climatological and/or landscape anomalies that may lead to accident prevention and detection of illegal activities in remote areas.</p><br><p  class=".black">Our main motivation is allowing communities to properly protect their territories from illegal activities and natural disasters.</p><br>
+					</code>
+				</div>
+			</div></center>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<img src="{{ url_for('static', filename='img/1.jpeg')}}" height="100" width="900">
+	<br>
+	<br>
+	<img src="{{ url_for('static', filename='img/2.jpeg')}}" height="400" width="900">
+	</center>
+	<br>
+	<br>
+	<br>
+{% endblock  %}
